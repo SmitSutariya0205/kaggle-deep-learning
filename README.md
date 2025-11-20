@@ -1,30 +1,48 @@
 # Kaggle Deep Learning Challenges
 
-This repository contains solutions to deep learning problems from Kaggle competitions and datasets. Each notebook aims to demonstrate practical applications of deep learning techniques using TensorFlow and Keras.
+This repository contains solutions to deep learning problems using TensorFlow and Keras.
 
 ---
 
-## First Commit: MNIST Digit Classification
+## 1. MNIST Digit Classification  
+**Notebook:** `mnist_digit_classification_tensorflow.ipynb`
 
-### Notebook
-`mnist_digit_classification_tensorflow.ipynb`
+A simple neural network trained on the MNIST handwritten digits dataset.
 
-### Problem Description
-The MNIST dataset consists of grayscale images of handwritten digits (0 to 9). The objective is to classify each image into one of the ten digit classes using a neural network.
-
-### Key Details
-- **Input:** 28x28 grayscale images, flattened to 784 features
-- **Model:** Feedforward neural network (Dense layers with ReLU and Softmax)
-- **Labels:** Integer encoded (not one-hot encoded)
-- **Loss Function:** `SparseCategoricalCrossentropy`
-- **Optimizer:** `Adam`
-- **Output:** Probabilities over 10 classes
-- **Evaluation:** Accuracy and confusion matrix using predictions obtained via `argmax()`
-
-### Preprocessing
-- Normalized input pixel values from `[0, 255]` to `[0.0, 1.0]`
-- Extracted labels from the dataset
-- Separated features (X) and labels (y)
+**Highlights**
+- Input: 28×28 grayscale images  
+- Architecture: Dense layers (ReLU + Softmax)  
+- Loss: `SparseCategoricalCrossentropy`  
+- Optimizer: `Adam`  
+- Evaluation: Accuracy + confusion matrix  
 
 ---
 
+## 2. Cat vs Dog Image Classification (CNN)  
+**Notebook:** `cat_dog_cnn_classification.ipynb`
+
+A Convolutional Neural Network trained on a dataset of 2000 images (1000 cats, 1000 dogs).
+
+**Highlights**
+- Input: Resized RGB images (e.g., 150×150×3)  
+- Architecture:
+Conv2D → MaxPool
+Conv2D → MaxPool
+Conv2D → MaxPool
+Flatten → Dense(128) → Dropout(0.5)
+Dense(2, Softmax)
+
+yaml
+Copy code
+- Labels: One-hot encoded  
+- Loss: `CategoricalCrossentropy`  
+- Optimizer: `Adam`  
+- Preprocessing: Normalization, train-test split  
+- Data Augmentation: rotation, zoom, horizontal flip  
+
+---
+
+## Repository Structure
+├── mnist_digit_classification_tensorflow.ipynb
+├── cat_dog_cnn_classification.ipynb
+├── README.md
